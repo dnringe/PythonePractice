@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+ 
+{% block title %} Home {% endblock %}
+ 
+{% block body %}
+
+<div class="" >
+  <div class="container" style="margin-left: 60px;">
+  <h6 class="font-weight-bold mb-4">Saved Addresses</h6>
+  </div>
+  <div class="container">
+  <table class="table col-4">
+      <!-- <thead style="background-color:#D5D4FF; ">
+          <th>ID</th>
+          <th>Name</th>
+          <th>Mobile</th> 
+          <th>Address</th>
+          <th>Pincode</th>
+          <th>State</th> 
+          <th>Email</th>
+          
+          <th>Hobbies</th> 
+          
+          <th>Actions</th>
+      </thead> -->
+
+    <tbody> 
+      {% for student in custaddress %}
+      <tr
+      {% if loop.index %2==0 %}
+      style="background-color: #D5D4FF;" 
+      {% else %}
+      style="background-color: #E1E7FE;"
+      {% endif %} >
+      <td>{{ loop.index }}</td>
+      <td>{{student.first_name}}<br>
+      {{student.last_name}}<br>
+      {{student.address}}<br>
+      {{student.pincode}}<br> 
+      {{student.country}}</td>
+      <!-- <td>{{student.email}}</td> -->
+      <!-- <td>{{student.gender}}</td> -->
+      <!-- <td>{{student.hobbies}}</td> -->
+      
+      <td> <span style="font-size: 24px;color:green;">
+        <a href="/{{student.id}}/edit"> <i class="fas fa-edit"></i></a> </span>
+          | <span style="font-size: 24px;color:red;">  
+            <a href="/{{student.id}}/delete"> <i class="fas fa-trash-alt"></i></a></span></td>
+      {% endfor %}
+    </tbody>
+  </table>
+    
+  </div>
+</div>
+
+
+{% endblock %}

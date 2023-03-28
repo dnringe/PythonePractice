@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+ 
+ 
+ 
+{% block title %} Home {% endblock %}
+ 
+ 
+ 
+{% block body %}
+<div class="container">
+<form action='' method="post">
+    Click YES to confirm
+    <input type = "submit" value="YES" class="btn" style="background-color: #D5D4FF;">
+    <a href='/'>Cancel</a>
+</form>
+</div>
+{% endblock %} 
