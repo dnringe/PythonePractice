@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+ 
+{% block title %} Home {% endblock %}
+ 
+{% block body %}
+
+<div class="container">
+ <table class="table">
+     <thead style="background-color: rgb(137, 246, 166);color: aliceblue;">
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Country</th>
+        <th>Actions</th>
+    </thead>
+
+   <tbody>
+    {% for student in students %}
+    <tr
+    
+    ><td>{{ loop.index }}</td>
+    <td>{{student.first_name}}</td>
+    <td>{{student.last_name}}</td>
+    <td>{{student.email}}</td>
+    <td>{{student.gender}}</td>
+    <td>{{student.country}}</td>
+    <td> <span style="font-size: 24px;color:green;">
+       <a href="/{{student.id}}/edit"> <i class="fas fa-edit">edit</i></a> </span>
+        | <span style="font-size: 24px;color:red;">  
+          <a href="/{{student.id}}/delete"> <i class="fas fa-trash-alt">del</i></a></span></td>
+    {% endfor %}
+   </tbody>
+ </table>
+  
+</div>
+
+
+{% endblock %}
